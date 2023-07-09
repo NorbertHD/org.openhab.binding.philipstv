@@ -60,7 +60,6 @@ TVs support the following channels:
 | brightness       | Dimmer    | Brightness of the TV picture.                                                                           |
 | contrast         | Dimmer    | Contrast of the TV picture.                                                                             |
 | sharpness        | Dimmer    | Sharpness of the TV picture.                                                                            |
-| volume           | Number    | Volume level of the TV.                                                                                 |
 ## Full Example
 
 ```
