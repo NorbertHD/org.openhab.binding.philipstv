@@ -8,7 +8,7 @@ Only Philips TVs produced in the year 2016 or later, using the Android TV OS.
 ## Discovery
 
 The TV must be turned on in order to be discovered. It will be initial named after its TV model description.
- 
+
 Afterwards the one-time pairing process must be worked through.
 
 ## Thing Configuration
@@ -30,9 +30,9 @@ Additional Configuration is possible, but not a must:
 | MAC Address      | Text      | MAC address of the Philips TV device. |
 | Pairing Code     | Text      | Needed for first time retrieval of credentials. See instructions above.                                                                        |
 | Refresh Rate     | Integer   | Refreshes TV status details. If UPnP Discovery is turned off, this determines how often the power state of the tv is checked.                                                                            |
-| Username         | Text    | Username for the authentication against the Philips TV.  
-| Password         | Text    | Password for the authentication against the Philips TV. |     
-| Use UPnP Discovery | Boolean    | Enables UPnP Discovery. If disabled, constant HTTPS polling will happen. Defaults to true, which is the recommended way. |  
+| Username         | Text    | Username for the authentication against the Philips TV.
+| Password         | Text    | Password for the authentication against the Philips TV. |
+| Use UPnP Discovery | Boolean    | Enables UPnP Discovery. If disabled, constant HTTPS polling will happen. Defaults to true, which is the recommended way. |
 
 ## Channels
 
@@ -40,7 +40,7 @@ TVs support the following channels:
 
 | Channel Type ID  | Item Type | Description                                                                                             |
 |------------------|-----------|---------------------------------------------------------------------------------------------------------|
-| volume           | Number    | Volume level of the TV.                                                                                 |
+| volume           | Dimmer    | Volume level of the TV.                                                                                 |
 | mute             | Switch    | Mute state of the TV.                                                                                   |
 | AppName          | String    | Name of the current running App. Changing this to a value from the available App List in this Item, starts an Application.                                                                             |
 | AppIcon          | Image     | Icon of the current running App.                                                                               |
@@ -49,7 +49,7 @@ TVs support the following channels:
 | searchContent    | String    | Changing this value toggles the Google Assistant search on the TV for the given input.                                                           |
 | power            | Switch    | TV power. Turning on only works in combination with Wake-On-LAN.                        |
 | keyCode          | String    | The key code channel emulates the infrared remote controller and allows to send virtual button presses. |
-| ambilightPower   | Switch    | Ambilight power control.                        | 
+| ambilightPower   | Switch    | Ambilight power control.                        |
 | ambilightHuePower| Switch    | Ambilight + Hue power control.                        |
 | ambilightStyle   | String    | Ambilight Style plus Algorithm used, e.g. "FOLLOW_VIDEO STANDARD" or "FOLLOW_COLOR HOT_LAVA".           |
 | ambilightColor   | Color     | Color for all Ambilight Sides. Changing this color will affect all sides at once.                       |
@@ -64,7 +64,7 @@ TVs support the following channels:
 ## Full Example
 
 ```
-Number PhilipsTV_Volume "Philips TV - Volume" {channel="philipstv:tv:5AFEF00D_BABE_DADA_FA5A_1c5a6bef9271:volume"}
+Dimmer PhilipsTV_Volume "Philips TV - Volume" {channel="philipstv:tv:5AFEF00D_BABE_DADA_FA5A_1c5a6bef9271:volume"}
 Switch PhilipsTV_Power "Philips TV - Power" (channel="philipstv:tv:5AFEF00D_BABE_DADA_FA5A_1c5a6bef9271:power"}
 Switch PhilipsTV_Mute "Philips TV - Mute" {channel="philipstv:tv:5AFEF00D_BABE_DADA_FA5A_1c5a6bef9271:mute"}
 String PhilipsTV_Key_Code "Philips TV - Key Code emulation" {channel="philipstv:tv:5AFEF00D_BABE_DADA_FA5A_1c5a6bef9271:keyCode"}
