@@ -65,6 +65,9 @@ public class PhilipsTvDiscoveryParticipant implements UpnpDiscoveryParticipant {
         properties.put(PORT, DEFAULT_PORT);
         logger.debug("Philips TV Found: {}, using default port {}", host, DEFAULT_PORT);
         String friendlyName = device.getDetails().getFriendlyName();
+        if (friendlyName.length() > 0 && Character.isDigit(friendlyName.charAt(0))) {
+            friendlyName = "_" + friendlyName; // label must not start with a digit
+        }
 
         return DiscoveryResultBuilder.create(uid).withThingType(THING_TYPE_PHILIPS_TV).withProperties(properties)
                 .withLabel(friendlyName).build();

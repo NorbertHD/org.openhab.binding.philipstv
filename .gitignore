@@ -1,2 +1,3 @@
 target/
 src/main/history
+.vscode/settings.json
